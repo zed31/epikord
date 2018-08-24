@@ -27,3 +27,6 @@ hs_err_pid*
 .gradle
 build
 out
+
+# things I don't want people to see
+src/main/resources/config.json
