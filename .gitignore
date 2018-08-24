@@ -29,4 +29,4 @@ build
 out
 
 # things I don't want people to see
-src/main/resources/config.json
+bot_config.json
