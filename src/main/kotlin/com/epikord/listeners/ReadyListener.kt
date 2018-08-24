@@ -1,5 +1,6 @@
 package com.epikord.listeners
 
+import com.epikord.processor.MessageProcessor
 import net.dv8tion.jda.core.events.Event
 import net.dv8tion.jda.core.events.ReadyEvent
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
@@ -16,19 +17,7 @@ class ReadyListener : EventListener {
     override fun onEvent(event: Event?) {
         when (event) {
             is ReadyEvent -> println("API is ready")
-            is MessageReceivedEvent -> this.handleReceivedMessage(event)
+            is MessageReceivedEvent -> MessageProcessor().handleMessage(event)
         }
-    }
-
-    /**
-     * Make an action when a message is received
-     * @param event the received event message
-     */
-    private fun handleReceivedMessage(event: MessageReceivedEvent?) {
-        if (event?.author!!.isBot) {
-            return
-        }
-        val msg = event.message!!.contentRaw
-        println("$msg")
     }
 }
