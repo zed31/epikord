@@ -1,6 +1,8 @@
 package com.epikord.command
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 /**
  * Class used to handle an Help command
@@ -9,6 +11,11 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent
  * @param formattedCmd the formatted command
  */
 class HelpCommand(event: MessageReceivedEvent?) : CmdHandler(event) {
+
+    /**
+     * Logger used to log on the specific user-defined output
+     */
+    val logger: Logger? = LoggerFactory.getLogger(HelpCommand::class.java)
 
     /**
      * Help message
@@ -35,6 +42,7 @@ class HelpCommand(event: MessageReceivedEvent?) : CmdHandler(event) {
      * Display the current channel and return
      */
     override fun run() {
+        logger?.info("Help command detected")
         this.channel?.sendMessage(this.helpInfo)?.queue()
     }
 }

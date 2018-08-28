@@ -16,7 +16,6 @@ class ReadyListener : EventListener {
      */
     override fun onEvent(event: Event?) {
         when (event) {
-            is ReadyEvent -> println("API is ready")
             is MessageReceivedEvent -> MessageProcessor().handleMessage(event)
         }
     }

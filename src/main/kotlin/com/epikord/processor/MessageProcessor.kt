@@ -5,17 +5,26 @@ import com.epikord.command.HelpCommand
 import com.epikord.command.RoleHandler
 import com.epikord.command.WhoAmICommand
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 /**
  * Class used to process received message
  */
 class MessageProcessor {
+    private val logger : Logger? = LoggerFactory.getLogger(MessageProcessor::class.java)
+
     /**
      * Function used to handle message
      * @param event event used to retrieve the message
      */
     fun handleMessage(event: MessageReceivedEvent?) {
         if (event?.author!!.isBot) {
+            return
+        }
+        logger?.info("${event.channel?.name}")
+        if (event.channel?.name != "bot") {
+            event.channel.sendMessage("**Merci d'utiliser ce bot dans le canal #bot**").queue()
             return
         }
         val msg = event.message!!.contentRaw
