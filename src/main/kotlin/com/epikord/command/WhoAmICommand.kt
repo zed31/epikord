@@ -9,7 +9,7 @@ class WhoAmICommand(event: MessageReceivedEvent?) : CmdHandler(event) {
     /**
      * Logger variable used to log on the specific output (defined in the properties)
      */
-    val logger : Logger? = LoggerFactory.getLogger(WhoAmICommand::class.java)
+    private val logger: Logger? = LoggerFactory.getLogger(WhoAmICommand::class.java)
 
     private val info = """
         Je suis un bot crée par @oken, je suis dans un repo publique sur github. Donc n'hésitez pas à faire des PR

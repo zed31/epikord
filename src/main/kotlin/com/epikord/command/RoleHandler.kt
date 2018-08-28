@@ -17,7 +17,7 @@ class RoleHandler(event: MessageReceivedEvent?, formattedCommand: String) : CmdH
     /**
      * Logger used to write log on the user-defined output
      */
-    val logger: Logger? = LoggerFactory.getLogger(RoleHandler::class.java)
+    private val logger: Logger? = LoggerFactory.getLogger(RoleHandler::class.java)
 
     /**
      * Controller used to handle the current guild

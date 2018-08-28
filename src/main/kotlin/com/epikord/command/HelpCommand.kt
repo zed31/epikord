@@ -15,7 +15,7 @@ class HelpCommand(event: MessageReceivedEvent?) : CmdHandler(event) {
     /**
      * Logger used to log on the specific user-defined output
      */
-    val logger: Logger? = LoggerFactory.getLogger(HelpCommand::class.java)
+    private val logger: Logger? = LoggerFactory.getLogger(HelpCommand::class.java)
 
     /**
      * Help message

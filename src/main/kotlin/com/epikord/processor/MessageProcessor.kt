@@ -12,7 +12,10 @@ import org.slf4j.LoggerFactory
  * Class used to process received message
  */
 class MessageProcessor {
-    private val logger : Logger? = LoggerFactory.getLogger(MessageProcessor::class.java)
+    /**
+     * Logger variable used to log on the specific output (defined in the properties)
+     */
+    private val logger: Logger? = LoggerFactory.getLogger(MessageProcessor::class.java)
 
     /**
      * Function used to handle message
