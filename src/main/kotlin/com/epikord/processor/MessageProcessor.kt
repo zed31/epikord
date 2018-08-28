@@ -1,6 +1,9 @@
 package com.epikord.processor
 
+import com.epikord.command.Command
 import com.epikord.command.HelpCommand
+import com.epikord.command.RoleHandler
+import com.epikord.command.WhoAmICommand
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 
 /**
@@ -20,9 +23,16 @@ class MessageProcessor {
             return
         }
         val command = msg.substring(1, msg.length)
-        println("command received: $command")
         when (command) {
-            "help" -> HelpCommand(event, command).run()
+            Command.Help.name       -> HelpCommand(event).run()
+            Command.WhoAmI.name     -> WhoAmICommand(event).run()
+            Command.PGT2.name       -> RoleHandler(event, command).run()
+            Command.PGT3.name       -> RoleHandler(event, command).run()
+            Command.PGT4Swa.name    -> RoleHandler(event, command).run()
+            Command.PGT4Net.name    -> RoleHandler(event, command).run()
+            Command.PGT5Swa.name    -> RoleHandler(event, command).run()
+            Command.PGT5Net.name    -> RoleHandler(event, command).run()
+            else                    -> HelpCommand(event).run()
         }
     }
 }
