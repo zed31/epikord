@@ -26,12 +26,12 @@ class MessageProcessor {
             return
         }
         logger?.info("${event.channel?.name}")
-        if (event.channel?.name != "bot") {
-            event.channel.sendMessage("**Merci d'utiliser ce bot dans le canal #bot**").queue()
-            return
-        }
         val msg = event.message!!.contentRaw
         if (!msg.startsWith("?")) {
+            return
+        }
+        if (event.channel?.name != "bot") {
+            event.channel.sendMessage("**Merci d'utiliser ce bot dans le canal #bot**").queue()
             return
         }
         val command = msg.substring(1, msg.length)
